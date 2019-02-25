@@ -1,8 +1,11 @@
+/*
+ * Copyright (C) 2019 Strategic Information Systems, LLC.
+ *
+ */
 package com.spring5;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +18,13 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
+/**
+ *
+ *
+ * @author javaugi
+ * @version $LastChangedRevision $LastChangedDate Last Modified Author:
+ * $LastChangedBy
+ */
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.spring5")
 public class MyApplication {

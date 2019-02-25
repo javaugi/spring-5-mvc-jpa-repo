@@ -1,6 +1,5 @@
 package com.spring5.repository;
 
-import com.spring5.repository.ContactRepository;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
