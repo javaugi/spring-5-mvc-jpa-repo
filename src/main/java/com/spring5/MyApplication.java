@@ -30,7 +30,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.spring5")
+@EnableJpaRepositories(basePackages = "com.spring5")
 public class MyApplication {
 
     public static void main(String[] args) {
