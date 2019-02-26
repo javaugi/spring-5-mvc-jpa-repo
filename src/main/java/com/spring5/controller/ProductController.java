@@ -8,7 +8,7 @@
 package com.spring5.controller;
 
 import com.google.common.collect.FluentIterable;
-import com.spring5.entity.DisplayCriteria;
+import com.spring5.type.DisplayCriteria;
 import com.spring5.entity.Product;
 import com.spring5.service.ProductService;
 import java.math.BigDecimal;
@@ -69,6 +69,7 @@ public class ProductController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request, ModelMap modelMap) {
+        LOG.info("index page");
         return "index";
     }
 

@@ -23,52 +23,7 @@
         </style>
     </head>
     <body>
-        <h1>Input Form</h1>
-        <form:form action="addUser" method="post" modelAttribute="user">
-            <table>
-                <tr>
-                    <td>Name</td>
-                    <td>
-                        <form:input path="name" /> <br />
-                        <form:errors path="name" cssClass="error" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td>
-                        <form:input path="email" /> <br />
-                        <form:errors path="email" cssClass="error" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button type="submit">Submit</button></td>
-                </tr>
-            </table>
-        </form:form>
-
-        <h2>Users List</h2>
-        <table>
-            <tr>
-                <td><strong>Name</strong></td>
-                <td><strong>Email</strong></td>
-            </tr>
-            <c:forEach items="${users}" var="user">
-                <tr>
-                    <td>${user.name}</td>
-                    <td>${user.email}</td>
-                </tr>
-            </c:forEach>
-        </table>
-
-        <form:form action="listUsers" method="get">
-            <table>
-                <tr>
-                    <td><button type="submit">List Users</button></td>
-                </tr>
-            </table>
-        </form:form>
-
-
+        <h1>Products</h1>
         <form:form action="listProducts" method="get">
             <table>
                 <tr>

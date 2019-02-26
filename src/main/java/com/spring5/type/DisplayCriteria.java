@@ -5,9 +5,7 @@
  * Redistribution without permission is strictly prohibited.
  * For more information, contact <http://www.ciminc.com>
  */
-package com.spring5.entity;
-
-import org.springframework.stereotype.Component;
+package com.spring5.type;
 
 /**
  *
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Component;
  * @version $LastChangedRevision $LastChangedDate Last Modified Author:
  * $LastChangedBy
  */
-@Component("displayCriteria")
 public class DisplayCriteria {
 
     private int entry;
