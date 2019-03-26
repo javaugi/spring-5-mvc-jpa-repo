@@ -67,12 +67,13 @@ public class ProductController {
         LOG.info("products total {} pages total {} with page size {}", totalRecords, pages, pageSize);
     }
 
+    /*
     @GetMapping("/")
     public String index(HttpServletRequest request, ModelMap modelMap) {
         LOG.info("index page");
         return "index";
     }
-
+    // */
     @GetMapping("/listProducts")
     public String listProducts(HttpServletRequest request, ModelMap modelMap) {
         return doDisplay(request, modelMap);

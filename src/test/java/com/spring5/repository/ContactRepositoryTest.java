@@ -15,13 +15,15 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.spring5.entity.Contact;
 import com.spring5.entity.Contact_Note;
 import com.spring5.type.PhoneType;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ContactRepositoryTest {
 
     @Autowired
-    private ContactRepository contactRepo;
+    private ContactRepository contactRepository;
 
     @Test
     public void it_can_find_the_contact_after_save_it() {
@@ -30,9 +32,9 @@ public class ContactRepositoryTest {
         note.setMessage("She is a java geek");
         contact.addNote(note);
 
-        contactRepo.save(contact);
+        contactRepository.save(contact);
 
-        List<Contact> contacts = contactRepo.findAll();
+        List<Contact> contacts = contactRepository.findAll();
 
         assertEquals(1, contacts.size());
         assertEquals("Mary", contacts.get(0).getFirstName());
@@ -51,13 +53,13 @@ public class ContactRepositoryTest {
         note.setMessage("She is a java geek");
         contact.addNote(note);
 
-        contactRepo.save(contact);
+        contactRepository.save(contact);
 
-        List<Contact> foundContacts = contactRepo.findAll();
+        List<Contact> foundContacts = contactRepository.findAll();
 
-        contactRepo.delete(foundContacts.get(0));
+        contactRepository.delete(foundContacts.get(0));
 
-        List<Contact> contacts = contactRepo.findAll();
+        List<Contact> contacts = contactRepository.findAll();
         assertEquals(0, contacts.size());
 
     }
@@ -66,12 +68,12 @@ public class ContactRepositoryTest {
     public void it_can_update_the_contact_after_save_it() {
         Contact contact = new Contact("Mary", "Zheng", "test@test.com", PhoneType.HOME, "6365272943");
 
-        contactRepo.save(contact);
+        contactRepository.save(contact);
 
         contact.setEmail("mary.zheng@test.com");
-        contactRepo.save(contact);
+        contactRepository.save(contact);
 
-        List<Contact> contacts = contactRepo.findAll();
+        List<Contact> contacts = contactRepository.findAll();
         assertEquals(1, contacts.size());
         assertEquals("mary.zheng@test.com", contacts.get(0).getEmail());
     }
@@ -79,12 +81,12 @@ public class ContactRepositoryTest {
     @Test
     public void it_can_find_contacts_by_name_and_type() {
 
-        contactRepo.save(new Contact("Mary", "Zheng", "mary.zheng@jcg.org", PhoneType.HOME, "6368168164"));
-        contactRepo.save(new Contact("Tom", "Smith", "tom.smith@jcg.org", PhoneType.MOBILE, "(636) 527-2943"));
-        contactRepo.save(new Contact("John", "Joe", "john.joe@jcg.org", PhoneType.OFFICE, "(314) 527 2943"));
-        contactRepo.save(new Contact("Cindy", "Chang", "cindy.change@jcg.org", PhoneType.OTHER, "404-789-1456"));
+        contactRepository.save(new Contact("Mary", "Zheng", "mary.zheng@jcg.org", PhoneType.HOME, "6368168164"));
+        contactRepository.save(new Contact("Tom", "Smith", "tom.smith@jcg.org", PhoneType.MOBILE, "(636) 527-2943"));
+        contactRepository.save(new Contact("John", "Joe", "john.joe@jcg.org", PhoneType.OFFICE, "(314) 527 2943"));
+        contactRepository.save(new Contact("Cindy", "Chang", "cindy.change@jcg.org", PhoneType.OTHER, "404-789-1456"));
 
-        List<Contact> contactsWithZheng = contactRepo.findByLastNameAndPhoneType(PhoneType.HOME, "Zheng");
+        List<Contact> contactsWithZheng = contactRepository.findByLastNameAndPhoneType(PhoneType.HOME, "Zheng");
 
         assertEquals(1, contactsWithZheng.size());
         Contact foundContact = contactsWithZheng.get(0);
@@ -98,7 +100,7 @@ public class ContactRepositoryTest {
 
     @Test(expected = EntityNotFoundException.class)
     public void it_return_null_when_not_found() {
-        Contact found = contactRepo.getOne(2L);
+        Contact found = contactRepository.getOne(2L);
         assertNull(found);
     }
 

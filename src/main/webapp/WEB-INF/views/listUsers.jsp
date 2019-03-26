@@ -26,17 +26,13 @@
                 <tr>
                     <th width="20px">Id</th>
                     <th>Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
+                    <th>Email</th>
                 </tr>
                 <c:forEach items="${pagedListHolder.pageList}" var="item">
                     <tr>
                         <td>${item.id}</td>
                         <td>${item.name}</td>
-                        <td>${item.price}</td>
-                        <td>${item.quantity}</td>
-                        <td>${item.status }</td>
+                        <td>${item.email}</td>
                     </tr>
                 </c:forEach>
             </table>
