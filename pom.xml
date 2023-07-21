@@ -23,7 +23,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
 
         <hibernate.validator>6.0.15.Final</hibernate.validator>
-        <c3p0.version>0.9.5.3</c3p0.version>
+        <c3p0.version>0.9.5.4</c3p0.version>
         <jstl.version>1.2.2</jstl.version>
         <tld.version>1.1.2</tld.version>
         <jsp.version>2.3.3</jsp.version>
