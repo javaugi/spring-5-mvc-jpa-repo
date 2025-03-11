@@ -20,9 +20,9 @@ public interface UserDao {
 
     Iterable<User> findAll(int offset, int limit);
 
-    //Iterable<User> findAll(Sort sort);
+    Iterable<User> findAll(Sort sort);
 
-    //Page<User> findAll(Pageable pageable);
+    Page<User> findAll(Pageable pageable);
 
     List<User> findByName(String name);
 

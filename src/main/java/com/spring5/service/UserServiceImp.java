@@ -20,39 +20,44 @@ public class UserServiceImp implements UserService {
     private UserDao userDao;
 
     @Transactional
+    @Override
     public void save(User user) {
         userDao.save(user);
     }
 
     @Transactional
+    @Override
     public void saveAll(List<User> users) {
         userDao.saveAll(users);
     }
 
     @Transactional(readOnly = true)
+    @Override
     public Optional<User> findById(Long id) {
         return userDao.findById(id);
     }
 
     @Transactional(readOnly = true)
+    @Override
     public Iterable<User> findAll() {
         return userDao.findAll();
     }
 
     @Transactional(readOnly = true)
+    @Override
     public Iterable<User> findAll(int offset, int limit) {
         return userDao.findAll(offset, limit);
     }
 
-    /*
     @Transactional(readOnly = true)
+    @Override
     public Iterable<User> findAll(Sort sort) {
-        return userDao.findAll(sort);
+        return userDao.findAll();
     }
 
     @Transactional(readOnly = true)
+    @Override
     public Page<User> findAll(Pageable pageable) {
         return userDao.findAll(pageable);
     }
-    // */
 }

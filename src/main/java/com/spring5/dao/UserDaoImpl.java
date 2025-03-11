@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 @Repository
-public class UserDaoImp implements UserDao {
+public class UserDaoImpl implements UserDao {
 
     @Autowired
     private UserRepository userRepository;
@@ -46,18 +49,16 @@ public class UserDaoImp implements UserDao {
         return userRepository.findAll();
     }
     
-    /*
     @Override
     public Iterable<User> findAll(Sort sort) {
-        return userRepository.findAll(sort);
+        return userRepository.findAll();
     }
 
     @Override
     public Page<User> findAll(Pageable pageable) {
-        return userRepository.findAll(pageable);
+        return null;
     }
-    // */
-
+    
     @Override
     public List<User> findByName(String name) {
         return userRepository.findByName(name);
