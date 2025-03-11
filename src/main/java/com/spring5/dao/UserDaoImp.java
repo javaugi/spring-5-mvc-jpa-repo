@@ -1,16 +1,13 @@
 package com.spring5.dao;
 
-import com.google.common.collect.FluentIterable;
 import com.spring5.entity.User;
 import org.springframework.stereotype.Repository;
 
 import com.spring5.repository.UserRepository;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 
 @Repository
 public class UserDaoImp implements UserDao {
@@ -35,14 +32,21 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> findAll() {
-        return FluentIterable.from(userRepository.findAll()).toList();
+        return iterableToList(userRepository.findAll());
     }
+    
+    public static <T> List<T> iterableToList(Iterable<T> iterable) {
+        List<T> list = new ArrayList<>();
+        iterable.forEach(list::add);
+        return list;
+    }  
 
     @Override
     public Iterable<User> findAll(int offset, int limit) {
         return userRepository.findAll();
     }
-
+    
+    /*
     @Override
     public Iterable<User> findAll(Sort sort) {
         return userRepository.findAll(sort);
@@ -52,6 +56,7 @@ public class UserDaoImp implements UserDao {
     public Page<User> findAll(Pageable pageable) {
         return userRepository.findAll(pageable);
     }
+    // */
 
     @Override
     public List<User> findByName(String name) {

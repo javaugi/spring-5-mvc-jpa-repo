@@ -44,6 +44,7 @@ public class UserServiceImp implements UserService {
         return userDao.findAll(offset, limit);
     }
 
+    /*
     @Transactional(readOnly = true)
     public Iterable<User> findAll(Sort sort) {
         return userDao.findAll(sort);
@@ -53,4 +54,5 @@ public class UserServiceImp implements UserService {
     public Page<User> findAll(Pageable pageable) {
         return userDao.findAll(pageable);
     }
+    // */
 }

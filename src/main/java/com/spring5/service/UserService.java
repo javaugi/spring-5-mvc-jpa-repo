@@ -32,7 +32,7 @@ public interface UserService {
 
     Iterable<User> findAll(int offset, int limit);
 
-    public Iterable<User> findAll(Sort sort);
+    //public Iterable<User> findAll(Sort sort);
 
-    public Page<User> findAll(Pageable pageable);
+    //public Page<User> findAll(Pageable pageable);
 }
