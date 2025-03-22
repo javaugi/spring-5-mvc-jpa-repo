@@ -32,7 +32,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.spring5")
 public class MyApplication {
-
+    
     public static void main(String[] args) {
         SpringApplication.run(MyApplication.class, args);
     }
